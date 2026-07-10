@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Weather-Cast | Live Weather Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app-bg" id="appBg"></div>
+
+  <main class="container">
+
+    <header class="app-header">
+      <h1 class="logo">🌦️ Weather<span>Cast</span></h1>
+      <p class="tagline">Live weather, wherever you are</p>
+    </header>
+
+    <section class="search-section">
+      <form id="searchForm" class="search-form" autocomplete="off">
+        <input
+          type="text"
+          id="cityInput"
+          class="search-input"
+          placeholder="Search for a city..."
+          aria-label="City name"
+        />
+        <button type="submit" class="search-btn" id="searchBtn">
+          <span class="btn-text">Search</span>
+        </button>
+      </form>
+      <button id="locBtn" class="loc-btn" title="Use my current location">
+        📍 Use my location
+      </button>
+    </section>
+
+    <section class="status-area">
+      <div id="loader" class="loader hidden">
+        <div class="spinner"></div>
+        <p>Fetching weather data...</p>
+      </div>
+
+      <div id="errorBox" class="error-box hidden">
+        <p id="errorText">City not found. Please try again.</p>
+      </div>
+    </section>
+
+    <section id="weatherCard" class="weather-card hidden">
+      <div class="card-top">
+        <div class="location-info">
+          <h2 id="cityName">--</h2>
+          <p id="dateTime">--</p>
+        </div>
+        <img id="weatherIcon" class="weather-icon" src="" alt="Weather icon" />
+      </div>
+
+      <div class="card-main">
+        <h1 id="temperature" class="temperature">--°</h1>
+        <p id="condition" class="condition">--</p>
+      </div>
+
+      <div class="card-details">
+        <div class="detail-item">
+          <span class="detail-label">Humidity</span>
+          <span id="humidity" class="detail-value">--%</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Feels Like</span>
+          <span id="feelsLike" class="detail-value">--°</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Wind</span>
+          <span id="wind" class="detail-value">-- km/h</span>
+        </div>
+      </div>
+
+      <p id="cacheNote" class="cache-note hidden">⚡ Loaded from cache</p>
+    </section>
+
+    <footer class="app-footer">
+      <p>Built for Sprint 03 &mdash; Async JavaScript &amp; API Integration</p>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
